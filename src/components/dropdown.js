@@ -44,27 +44,27 @@ class MiniMediaPlayerDropdown extends LitElement {
   render() {
     return html`
       <div
-        class='mmp-dropdown'
+        class='mmp-jk-dropdown'
         @click=${e => e.stopPropagation()}
         ?open=${this.isOpen}>
         ${this.icon ? html`
           <ha-icon-button
             id='button'
-            class='mmp-dropdown__button icon'
+            class='mmp-jk-dropdown__button icon'
             .icon=${ICON.DROPDOWN}
             @click=${this.toggleMenu}>
             <ha-icon .icon=${ICON.DROPDOWN}></ha-icon>
           </ha-icon-button>
         ` : html`
-          <mmp-button id='button' class='mmp-dropdown__button' 
+          <mmp-jk-button id='button' class='mmp-jk-dropdown__button' 
             @click=${this.toggleMenu}>
             <div>
-              <span class='mmp-dropdown__label ellipsis'>
+              <span class='mmp-jk-dropdown__label ellipsis'>
                 ${this.selected || this.label}
               </span>
-              <ha-icon class='mmp-dropdown__icon' .icon=${ICON.DROPDOWN}></ha-icon>
+              <ha-icon class='mmp-jk-dropdown__icon' .icon=${ICON.DROPDOWN}></ha-icon>
             </div>
-          </mmp-button>
+          </mmp-jk-button>
         `}
         ${this.hasLegacyMenu
           ? html`<mwc-menu
@@ -77,18 +77,18 @@ class MiniMediaPlayerDropdown extends LitElement {
               ${this.items.map(item => html`
                 <mwc-list-item value=${item.id || item.name}>
                   ${item.icon ? html`<ha-icon .icon=${item.icon}></ha-icon>` : ''}
-                  ${item.name ? html`<span class='mmp-dropdown__item__label'>${item.name}</span>` : ''}
+                  ${item.name ? html`<span class='mmp-jk-dropdown__item__label'>${item.name}</span>` : ''}
                 </mwc-list-item>`)}
             </mwc-menu>`
-          : html`<div class='mmp-dropdown__menu' ?open=${this.isOpen}>
+          : html`<div class='mmp-jk-dropdown__menu' ?open=${this.isOpen}>
               ${this.items.map((item, index) => html`
                 <button
-                  class='mmp-dropdown__item'
+                  class='mmp-jk-dropdown__item'
                   type='button'
                   ?selected=${index === this.selectedIndex}
                   @click=${e => this.onFallbackSelect(e, index)}>
                   ${item.icon ? html`<ha-icon .icon=${item.icon}></ha-icon>` : ''}
-                  ${item.name ? html`<span class='mmp-dropdown__item__label'>${item.name}</span>` : ''}
+                  ${item.name ? html`<span class='mmp-jk-dropdown__item__label'>${item.name}</span>` : ''}
                 </button>`)}
             </div>`}
       </div>
@@ -147,24 +147,24 @@ class MiniMediaPlayerDropdown extends LitElement {
         :host([faded]) {
           opacity: .75;
         }
-        :host[small] .mmp-dropdown__label {
+        :host[small] .mmp-jk-dropdown__label {
           max-width: 60px;
           display: block;
           position: relative;
           width: auto;
           text-transform: initial;
         }
-        :host[full] .mmp-dropdown__label {
+        :host[full] .mmp-jk-dropdown__label {
           max-width: none;
         }
-        .mmp-dropdown {
+        .mmp-jk-dropdown {
           padding: 0;
           display: block;
           position: relative;
           min-width: 0;
           max-width: 100%;
         }
-        .mmp-dropdown__menu {
+        .mmp-jk-dropdown__menu {
           position: absolute;
           right: 0;
           top: calc(100% + 2px);
@@ -180,10 +180,10 @@ class MiniMediaPlayerDropdown extends LitElement {
           z-index: 1000;
           display: none;
         }
-        .mmp-dropdown__menu[open] {
+        .mmp-jk-dropdown__menu[open] {
           display: block;
         }
-        .mmp-dropdown__item {
+        .mmp-jk-dropdown__item {
           align-items: center;
           background: transparent;
           border: 0;
@@ -198,16 +198,16 @@ class MiniMediaPlayerDropdown extends LitElement {
           text-align: left;
           width: 100%;
         }
-        .mmp-dropdown__item[selected],
-        .mmp-dropdown__item:hover {
+        .mmp-jk-dropdown__item[selected],
+        .mmp-jk-dropdown__item:hover {
           background: rgba(127, 127, 127, 0.15);
         }
-        .mmp-dropdown__item__label {
+        .mmp-jk-dropdown__item__label {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
         }
-        .mmp-dropdown__button {
+        .mmp-jk-dropdown__button {
           display: flex;
           font-size: 1em;
           justify-content: space-between;
@@ -217,15 +217,15 @@ class MiniMediaPlayerDropdown extends LitElement {
           max-width: 100%;
           min-width: 0;
         }
-        .mmp-dropdown__button:not(.icon) {
+        .mmp-jk-dropdown__button:not(.icon) {
           width: 100%;
           overflow: hidden;
         }
-        .mmp-dropdown__button.icon {
+        .mmp-jk-dropdown__button.icon {
           height: var(--mmp-unit);
           margin: 0;
         }
-        .mmp-dropdown__button > div {
+        .mmp-jk-dropdown__button > div {
           display: flex;
           flex: 1;
           justify-content: space-between;
@@ -234,7 +234,7 @@ class MiniMediaPlayerDropdown extends LitElement {
           max-width: 100%;
           min-width: 0;
         }
-        .mmp-dropdown__label {
+        .mmp-jk-dropdown__label {
           display: block;
           min-width: 0;
           max-width: 100%;
@@ -244,7 +244,7 @@ class MiniMediaPlayerDropdown extends LitElement {
           text-align: left;
           text-transform: none;
         }
-        .mmp-dropdown__icon {
+        .mmp-jk-dropdown__icon {
           height: auto;
           width: calc(var(--mmp-unit) * .6);
           min-width: calc(var(--mmp-unit) * .6);
@@ -252,15 +252,15 @@ class MiniMediaPlayerDropdown extends LitElement {
         mwc-list-item > *:nth-child(2) {
           margin-left: 4px;
         }
-        .mmp-dropdown[open] mmp-button ha-icon {
+        .mmp-jk-dropdown[open] mmp-jk-button ha-icon {
           color: var(--mmp-accent-color);
           transform: rotate(180deg);
         }
-        .mmp-dropdown[open] mmp-icon-button {
+        .mmp-jk-dropdown[open] mmp-icon-button {
           color: var(--mmp-accent-color);
           transform: rotate(180deg);
         }
-        .mmp-dropdown[open] mmp-icon-button[focused] {
+        .mmp-jk-dropdown[open] mmp-icon-button[focused] {
           color: var(--mmp-text-color);
           transform: rotate(0deg);
         }
@@ -269,4 +269,4 @@ class MiniMediaPlayerDropdown extends LitElement {
   }
 }
 
-customElements.define('mmp-dropdown', MiniMediaPlayerDropdown);
+customElements.define('mmp-jk-dropdown', MiniMediaPlayerDropdown);

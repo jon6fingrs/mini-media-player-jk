@@ -69,19 +69,19 @@ class MiniMediaPlayerPowerstrip extends LitElement {
     return html`
       ${this.idle ? this.renderIdleView : ''}
       ${this.hasControls
-        ? html` <mmp-media-controls .player=${this.player} .config=${this.config}> </mmp-media-controls> `
+        ? html` <mmp-jk-media-controls .player=${this.player} .config=${this.config}> </mmp-jk-media-controls> `
         : ''}
       ${this.hasSource
-        ? html` <mmp-source-menu .player=${this.player} .icon=${this.sourceSize} ?full=${this.config.source === 'full'}>
-          </mmp-source-menu>`
+        ? html` <mmp-jk-source-menu .player=${this.player} .icon=${this.sourceSize} ?full=${this.config.source === 'full'}>
+          </mmp-jk-source-menu>`
         : ''}
       ${this.hasSoundMode
-        ? html` <mmp-sound-menu
+        ? html` <mmp-jk-sound-menu
             .player=${this.player}
             .icon=${this.soundSize}
             ?full=${this.config.sound_mode === 'full'}
           >
-          </mmp-sound-menu>`
+          </mmp-jk-sound-menu>`
         : ''}
       ${this.showGroupButton
         ? html` <ha-icon-button
@@ -130,22 +130,22 @@ class MiniMediaPlayerPowerstrip extends LitElement {
           display: flex;
           align-items: center;
         }
-        :host([flow]) mmp-media-controls {
+        :host([flow]) mmp-jk-media-controls {
           max-width: unset;
         }
-        mmp-media-controls {
+        mmp-jk-media-controls {
           max-width: calc(var(--mmp-unit) * 5);
           line-height: initial;
           justify-content: flex-end;
         }
-        mmp-source-menu,
-        mmp-sound-menu {
+        mmp-jk-source-menu,
+        mmp-jk-sound-menu {
           min-width: 0;
           max-width: 120px;
           flex: 0 1 auto;
         }
-        mmp-source-menu[full],
-        mmp-sound-menu[full] {
+        mmp-jk-source-menu[full],
+        mmp-jk-sound-menu[full] {
           max-width: 100%;
         }
         .group-button {
@@ -159,4 +159,4 @@ class MiniMediaPlayerPowerstrip extends LitElement {
   }
 }
 
-customElements.define('mmp-powerstrip', MiniMediaPlayerPowerstrip);
+customElements.define('mmp-jk-powerstrip', MiniMediaPlayerPowerstrip);

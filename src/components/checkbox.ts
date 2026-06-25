@@ -1,7 +1,7 @@
 import { LitElement, html, css, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-@customElement('mmp-checkbox')
+@customElement('mmp-jk-checkbox')
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class MiniMediaPlayerCheckbox extends LitElement {
   @property({ attribute: false }) public checked!: boolean;

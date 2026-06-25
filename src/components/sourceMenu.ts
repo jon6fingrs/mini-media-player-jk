@@ -13,7 +13,7 @@ interface DropdownItem {
 
 type ChangeEvent = CustomEvent<DropdownItem>;
 
-@customElement('mmp-source-menu')
+@customElement('mmp-jk-source-menu')
 export class MiniMediaPlayerSourceMenu extends LitElement {
   @property({ attribute: false }) public player!: MediaPlayerObject;
 
@@ -33,13 +33,13 @@ export class MiniMediaPlayerSourceMenu extends LitElement {
 
   render(): TemplateResult {
     return html`
-      <mmp-dropdown
+      <mmp-jk-dropdown
         @change=${this.handleSource}
         .items=${this.alternatives}
         .label=${this.source}
         .selected=${this.source}
         .icon=${this.icon}
-      ></mmp-dropdown>
+      ></mmp-jk-dropdown>
     `;
   }
 

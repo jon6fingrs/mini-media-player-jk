@@ -173,7 +173,7 @@ class MiniMediaPlayer extends LitElement {
           <div class="mmp-player__core flex" ?inactive=${this.player.idle}>
             ${this.renderIcon()}
             <div class="entity__info">${this.renderEntityName()} ${this.renderMediaInfo()}</div>
-            <mmp-powerstrip
+            <mmp-jk-powerstrip
               @toggleGroupList=${this.toggleGroupList}
               .hass=${this.hass}
               .player=${this.player}
@@ -182,37 +182,37 @@ class MiniMediaPlayer extends LitElement {
               .idle=${this.idle}
               ?flow=${config.flow}
             >
-            </mmp-powerstrip>
+            </mmp-jk-powerstrip>
           </div>
           <div class="mmp-player__adds">
             ${!config.collapse && this.player.isActive
         ? html`
-                  <mmp-media-controls .player=${this.player} .config=${config} .break=${this.break}>
-                  </mmp-media-controls>
+                  <mmp-jk-media-controls .player=${this.player} .config=${config} .break=${this.break}>
+                  </mmp-jk-media-controls>
                 `
         : ''}
-            <mmp-shortcuts .player=${this.player} .shortcuts=${config.shortcuts}> </mmp-shortcuts>
+            <mmp-jk-shortcuts .player=${this.player} .shortcuts=${config.shortcuts}> </mmp-jk-shortcuts>
             ${config.tts
-        ? html` <mmp-tts .config=${config.tts} .hass=${this.hass} .player=${this.player}> </mmp-tts> `
+        ? html` <mmp-jk-tts .config=${config.tts} .hass=${this.hass} .player=${this.player}> </mmp-jk-tts> `
         : ''}
-            <mmp-group-list
+            <mmp-jk-group-list
               .hass=${this.hass}
               .visible=${this.edit}
               .entities=${config.speaker_group.entities}
               .player=${this.groupMgmtPlayer ? this.groupMgmtPlayer : this.player}
               >>
-            </mmp-group-list>
+            </mmp-jk-group-list>
           </div>
         </div>
         <div class="mmp__container">
           ${this.player.isActive && this.player.hasProgress
         ? html`
-                <mmp-progress
+                <mmp-jk-progress
                   .player=${this.player}
                   .showTime=${!this.config.hide.runtime}
                   .showRemainingTime=${!this.config.hide.runtime_remaining}
                 >
-                </mmp-progress>
+                </mmp-jk-progress>
               `
         : ''}
         </div>

@@ -32,14 +32,14 @@ class MiniMediaPlayerTts extends LitElement {
     return html`
       <ha-input
         id="tts-input"
-        class="mmp-tts__input"
+        class="mmp-jk-tts__input"
         placeholder="${this.label}..."
         @click=${e => e.stopPropagation()}
       >
       </ha-input>
-      <mmp-button class="mmp-tts__button" @click=${this.handleTts}>
+      <mmp-jk-button class="mmp-jk-tts__button" @click=${this.handleTts}>
         <span>${t(this.hass, 'label.send')}</span>
-      </mmp-button>
+      </mmp-jk-button>
     `;
   }
 
@@ -110,16 +110,16 @@ class MiniMediaPlayerTts extends LitElement {
         margin: 8px 4px 0px;
         display: flex;
       }
-      .mmp-tts__input {
+      .mmp-jk-tts__input {
         cursor: text;
         flex: 1;
         margin-right: 8px;
       }
-      ha-card[rtl] .mmp-tts__input {
+      ha-card[rtl] .mmp-jk-tts__input {
         margin-right: auto;
         margin-left: 8px;
       }
-      .mmp-tts__button {
+      .mmp-jk-tts__button {
         margin: 0;
         height: 30px;
         padding: 0 .4em;
@@ -128,4 +128,4 @@ class MiniMediaPlayerTts extends LitElement {
   }
 }
 
-customElements.define('mmp-tts', MiniMediaPlayerTts);
+customElements.define('mmp-jk-tts', MiniMediaPlayerTts);

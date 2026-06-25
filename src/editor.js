@@ -98,14 +98,14 @@ export default class MiniMediaPlayerEditor extends LitElement {
       <div class="card-config">
         <div class="overall-config">
           <span class="editor-label">Entity (required)</span>
-          <mmp-dropdown
-            class="mmp-shortcuts__dropdown"
+          <mmp-jk-dropdown
+            class="mmp-jk-shortcuts__dropdown"
             @change=${({ detail }) => this.valueChanged({ target: { configValue: 'entity', value: detail.id } })}
             .items=${mediaPlayerOptions}
             .label=${'Select entity'}
             .selected=${this._config.entity}
           >
-          </mmp-dropdown>
+          </mmp-jk-dropdown>
 
           <div class="editor-side-by-side">
             <paper-input
@@ -155,64 +155,64 @@ export default class MiniMediaPlayerEditor extends LitElement {
           <div class="editor-side-by-side">
             <div>
               <span class="editor-label">Artwork</span>
-              <mmp-dropdown
-                class="mmp-shortcuts__dropdown"
+              <mmp-jk-dropdown
+                class="mmp-jk-shortcuts__dropdown"
                 @change=${({ detail }) => this.valueChanged({ target: { configValue: 'artwork', value: detail.id } })}
                 .items=${computeItems(OptionsArtwork, true)}
                 .label=${'Default'}
                 .selected=${this._config.artwork}
               >
-              </mmp-dropdown>
+              </mmp-jk-dropdown>
             </div>
             <div>
               <span class="editor-label">Source</span>
-              <mmp-dropdown
-                class="mmp-shortcuts__dropdown"
+              <mmp-jk-dropdown
+                class="mmp-jk-shortcuts__dropdown"
                 @change=${({ detail }) => this.valueChanged({ target: { configValue: 'source', value: detail.id } })}
                 .items=${computeItems(OptionsSource, true)}
                 .label=${'Default'}
                 .selected=${this._config.source}
               >
-              </mmp-dropdown>
+              </mmp-jk-dropdown>
             </div>
             <div>
               <span class="editor-label">Sound mode</span>
-              <mmp-dropdown
-                class="mmp-shortcuts__dropdown"
+              <mmp-jk-dropdown
+                class="mmp-jk-shortcuts__dropdown"
                 @change=${({ detail }) =>
         this.valueChanged({ target: { configValue: 'sound_mode', value: detail.id } })}
                 .items=${computeItems(OptionsSoundMode, true)}
                 .label=${'Default'}
                 .selected=${this._config.sound_mode}
               >
-              </mmp-dropdown>
+              </mmp-jk-dropdown>
             </div>
           </div>
 
           <div class="editor-side-by-side">
             <div>
               <span class="editor-label">Info</span>
-              <mmp-dropdown
-                class="mmp-shortcuts__dropdown"
+              <mmp-jk-dropdown
+                class="mmp-jk-shortcuts__dropdown"
                 @change=${({ detail }) => this.valueChanged({ target: { configValue: 'info', value: detail.id } })}
                 .items=${computeItems(OptionsInfo, true)}
                 .label=${'Default'}
                 .selected=${this._config.info}
               >
-              </mmp-dropdown>
+              </mmp-jk-dropdown>
             </div>
 
             <div>
               <span class="editor-label">Replace Mute</span>
-              <mmp-dropdown
-                class="mmp-shortcuts__dropdown"
+              <mmp-jk-dropdown
+                class="mmp-jk-shortcuts__dropdown"
                 @change=${({ detail }) =>
         this.valueChanged({ target: { configValue: 'replace_mute', value: detail.id } })}
                 .items=${computeItems(OptionsReplaceMute, true)}
                 .label=${'Default'}
                 .selected=${this._config.replace_mute}
               >
-              </mmp-dropdown>
+              </mmp-jk-dropdown>
             </div>
           </div>
 

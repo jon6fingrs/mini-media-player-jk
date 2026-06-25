@@ -17,7 +17,7 @@ const style = css`
     --mmp-media-cover-info-color: var(--mini-media-player-media-cover-info-color, --mmp-text-color);
     --mmp-text-color-inverted: var(--disabled-text-color);
     --mmp-active-color: var(--mmp-accent-color);
-    --mmp-button-color: var(--mini-media-player-button-color, rgba(255, 255, 255, 0.25));
+    --mmp-jk-button-color: var(--mini-media-player-button-color, rgba(255, 255, 255, 0.25));
     --mmp-icon-color: var(
       --mini-media-player-icon-color,
       var(--mini-media-player-base-color, var(--paper-item-icon-color, #44739e))
@@ -26,7 +26,7 @@ const style = css`
     --mmp-info-opacity: 0.75;
     --mmp-bg-opacity: var(--mini-media-player-background-opacity, 1);
     --mmp-artwork-opacity: var(--mini-media-player-artwork-opacity, 1);
-    --mmp-progress-height: var(--mini-media-player-progress-height, 6px);
+    --mmp-jk-progress-height: var(--mini-media-player-progress-height, 6px);
     --mmp-border-radius: var(--ha-card-border-radius, 12px);
     --mdc-theme-primary: var(--mmp-text-color);
     --mdc-theme-on-primary: var(--mmp-text-color);
@@ -89,7 +89,7 @@ const style = css`
   ha-card.--group {
     box-shadow: none;
     border: none;
-    --mmp-progress-height: var(--mini-media-player-progress-height, 4px);
+    --mmp-jk-progress-height: var(--mini-media-player-progress-height, 4px);
     --mmp-border-radius: 0px
   }
   ha-card.--more-info {
@@ -390,7 +390,7 @@ const style = css`
   .mmp-player__adds > *:nth-child(2) {
     margin-top: 0px;
   }
-  mmp-powerstrip {
+  mmp-jk-powerstrip {
     flex: 1;
     justify-content: flex-end;
     align-items: center;
@@ -399,14 +399,14 @@ const style = css`
     width: auto;
     max-width: 100%;
   }
-  mmp-media-controls {
+  mmp-jk-media-controls {
     flex-wrap: wrap;
   }
-  ha-card.--flow mmp-powerstrip {
+  ha-card.--flow mmp-jk-powerstrip {
     justify-content: space-between;
     margin-left: auto;
   }
-  ha-card.--flow.--rtl mmp-powerstrip {
+  ha-card.--flow.--rtl mmp-jk-powerstrip {
     margin-right: auto;
   }
   ha-card.--flow .entity__info {
@@ -418,7 +418,7 @@ const style = css`
   ha-card.--responsive.--rtl .mmp-player__adds {
     margin-right: 0;
   }
-  ha-card.--responsive .mmp-player__adds > mmp-media-controls {
+  ha-card.--responsive .mmp-player__adds > mmp-jk-media-controls {
     padding: 0;
   }
   ha-card.--progress .mmp-player {

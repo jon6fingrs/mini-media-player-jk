@@ -44,7 +44,7 @@ class MiniMediaPlayerMediaControls extends LitElement {
       ${this.renderShuffleButton()}
       ${this.renderRepeatButton()}
       ${!hide.controls ? html`
-        <div class='flex mmp-media-controls__media' ?flow=${this.config.flow || this.break}>
+        <div class='flex mmp-jk-media-controls__media' ?flow=${this.config.flow || this.break}>
           ${!hide.prev && this.player.supportsPrev ? html`
             <ha-icon-button
               @click=${e => this.player.prev(e)}
@@ -67,7 +67,7 @@ class MiniMediaPlayerMediaControls extends LitElement {
 
   renderShuffleButton() {
     return this.showShuffle ? html`
-      <div class='flex mmp-media-controls__shuffle'>
+      <div class='flex mmp-jk-media-controls__shuffle'>
         <ha-icon-button
           class='shuffle-button'
           @click=${e => this.player.toggleShuffle(e)}
@@ -84,7 +84,7 @@ class MiniMediaPlayerMediaControls extends LitElement {
 
     const colored = [REPEAT_STATE.ONE, REPEAT_STATE.ALL].includes(this.player.repeat);
     return html`
-      <div class='flex mmp-media-controls__repeat'>
+      <div class='flex mmp-jk-media-controls__repeat'>
         <ha-icon-button
           class='repeat-button'
           @click=${e => this.player.toggleRepeat(e)}
@@ -103,7 +103,7 @@ class MiniMediaPlayerMediaControls extends LitElement {
 
     const classes = classMap({
       '--buttons': this.config.volume_stateless,
-      'mmp-media-controls__volume': true,
+      'mmp-jk-media-controls__volume': true,
       flex: true,
     });
 
@@ -155,7 +155,7 @@ class MiniMediaPlayerMediaControls extends LitElement {
 
   renderVolLevel() {
     return html`
-      <span class="mmp-media-controls__volume__level">${this.vol}%</span>
+      <span class="mmp-jk-media-controls__volume__level">${this.vol}%</span>
     `;
   }
 
@@ -295,27 +295,27 @@ class MiniMediaPlayerMediaControls extends LitElement {
         ha-icon-button {
           min-width: var(--mmp-unit);
         }
-        .mmp-media-controls__volume {
+        .mmp-jk-media-controls__volume {
           flex: 100;
           align-items: center;
         }
-        .mmp-media-controls__volume > ha-icon-button {
+        .mmp-jk-media-controls__volume > ha-icon-button {
           flex-shrink: 0;
         }
-        .mmp-media-controls__volume.--buttons {
+        .mmp-jk-media-controls__volume.--buttons {
           justify-content: left;
         }
-        .mmp-media-controls__media {
+        .mmp-jk-media-controls__media {
           margin-right: 0;
           margin-left: auto;
           justify-content: inherit;
         }
-        .mmp-media-controls__media[flow] {
+        .mmp-jk-media-controls__media[flow] {
           max-width: none;
           justify-content: space-between;
         }
-        .mmp-media-controls__shuffle,
-        .mmp-media-controls__repeat {
+        .mmp-jk-media-controls__shuffle,
+        .mmp-jk-media-controls__repeat {
           flex: 3;
           flex-shrink: 200;
           justify-content: center;
@@ -325,4 +325,4 @@ class MiniMediaPlayerMediaControls extends LitElement {
   }
 }
 
-customElements.define('mmp-media-controls', MiniMediaPlayerMediaControls);
+customElements.define('mmp-jk-media-controls', MiniMediaPlayerMediaControls);

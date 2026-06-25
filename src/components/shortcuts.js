@@ -39,30 +39,30 @@ class MiniMediaPlayerShortcuts extends LitElement {
     const { active } = this;
 
     const list = this.list ? html`
-      <mmp-dropdown class='mmp-shortcuts__dropdown'
+      <mmp-jk-dropdown class='mmp-jk-shortcuts__dropdown'
         @change=${this.handleShortcut}
         .items=${this.list}
         .label=${this.shortcuts.label}
         .selected=${active}>
-      </mmp-dropdown>
+      </mmp-jk-dropdown>
     ` : '';
 
     const buttons = this.buttons ? html`
-      <div class='mmp-shortcuts__buttons'>
+      <div class='mmp-jk-shortcuts__buttons'>
         ${this.buttons.map(item => html`
-          <mmp-button
+          <mmp-jk-button
             style="${styleMap(this.shortcutStyle(item))}"
             raised
             columns=${this.shortcuts.columns}
             ?color=${item.id === active}
-            class='mmp-shortcuts__button'
+            class='mmp-jk-shortcuts__button'
             @click=${e => this.handleShortcut(e, item)}>
             <div align=${this.shortcuts.align_text}>
               ${item.icon ? html`<ha-icon .icon=${item.icon}></ha-icon>` : ''}
               ${item.image ? html`<img src=${item.image}>` : ''}
               ${item.name ? html`<span class="ellipsis">${item.name}</span>` : ''}
             </div>
-          </mmp-button>`)}
+          </mmp-jk-button>`)}
       </div>
     ` : '';
 
@@ -100,59 +100,59 @@ class MiniMediaPlayerShortcuts extends LitElement {
     return [
       sharedStyle,
       css`
-        .mmp-shortcuts__buttons {
+        .mmp-jk-shortcuts__buttons {
           box-sizing: border-box;
           display: flex;
           flex-wrap: wrap;
           margin-top: 8px;
         }
-        .mmp-shortcuts__button {
+        .mmp-jk-shortcuts__button {
           min-width: calc(50% - 8px);
           flex: 1;
           background-size: cover;
           background-repeat: no-repeat;
           background-position: center center;
         }
-        .mmp-shortcuts__button > div {
+        .mmp-jk-shortcuts__button > div {
           display: flex;
           justify-content: center;
           align-items: center;
           width: 100%;
           padding: .2em 0;
         }
-        .mmp-shortcuts__button > div[align='left'] {
+        .mmp-jk-shortcuts__button > div[align='left'] {
           justify-content: flex-start;
         }
-        .mmp-shortcuts__button > div[align='right'] {
+        .mmp-jk-shortcuts__button > div[align='right'] {
           justify-content: flex-end;
         }
-        .mmp-shortcuts__button[columns='1'] {
+        .mmp-jk-shortcuts__button[columns='1'] {
           min-width: calc(100% - 8px);
         }
-        .mmp-shortcuts__button[columns='3'] {
+        .mmp-jk-shortcuts__button[columns='3'] {
           min-width: calc(33.33% - 8px);
         }
-        .mmp-shortcuts__button[columns='4'] {
+        .mmp-jk-shortcuts__button[columns='4'] {
           min-width: calc(25% - 8px);
         }
-        .mmp-shortcuts__button[columns='5'] {
+        .mmp-jk-shortcuts__button[columns='5'] {
           min-width: calc(20% - 8px);
         }
-        .mmp-shortcuts__button[columns='6'] {
+        .mmp-jk-shortcuts__button[columns='6'] {
           min-width: calc(16.66% - 8px);
         }
-        .mmp-shortcuts__button > div > span {
+        .mmp-jk-shortcuts__button > div > span {
           line-height: calc(var(--mmp-unit) * .6);
           text-transform: initial;
         }
-        .mmp-shortcuts__button > div > ha-icon {
+        .mmp-jk-shortcuts__button > div > ha-icon {
           width: calc(var(--mmp-unit) * .6);
           height: calc(var(--mmp-unit) * .6);
         }
-        .mmp-shortcuts__button > div > *:nth-child(2) {
+        .mmp-jk-shortcuts__button > div > *:nth-child(2) {
           margin-left: 4px;
         }
-        .mmp-shortcuts__button > div > img {
+        .mmp-jk-shortcuts__button > div > img {
           height: 24px;
         }
       `,
@@ -160,4 +160,4 @@ class MiniMediaPlayerShortcuts extends LitElement {
   }
 }
 
-customElements.define('mmp-shortcuts', MiniMediaPlayerShortcuts);
+customElements.define('mmp-jk-shortcuts', MiniMediaPlayerShortcuts);

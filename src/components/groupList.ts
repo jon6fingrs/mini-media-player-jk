@@ -10,7 +10,7 @@ import MediaPlayerObject from '../model';
 import { MiniMediaPlayerSpeakerGroupEntry } from '../config/types';
 import { GroupChangeEvent } from './groupItem';
 
-@customElement('mmp-group-list')
+@customElement('mmp-jk-group-list')
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class MiniMediaPlayerGroupList extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;
@@ -44,21 +44,21 @@ class MiniMediaPlayerGroupList extends LitElement {
     const { group, isMaster, isGrouped } = this;
     const { id } = this.player;
     return html`
-      <div class="mmp-group-list">
-        <span class="mmp-group-list__title">${t(this.hass, 'title.speaker_management')}</span>
+      <div class="mmp-jk-group-list">
+        <span class="mmp-jk-group-list__title">${t(this.hass, 'title.speaker_management')}</span>
         ${this.entities.map((item) => this.renderItem(item, id))}
-        <div class="mmp-group-list__buttons">
-          <mmp-button raised ?disabled=${!isGrouped} @click=${(e) => this.player.handleGroupChange(e, id, false)}>
+        <div class="mmp-jk-group-list__buttons">
+          <mmp-jk-button raised ?disabled=${!isGrouped} @click=${(e) => this.player.handleGroupChange(e, id, false)}>
             <span>${t(this.hass, 'label.leave')}</span>
-          </mmp-button>
+          </mmp-jk-button>
           ${isGrouped && isMaster
         ? html`
-                <mmp-button raised @click=${(e) => this.player.handleGroupChange(e, group, false)}>
+                <mmp-jk-button raised @click=${(e) => this.player.handleGroupChange(e, group, false)}>
                   <span>${t(this.hass, 'label.ungroup')}</span>
-                </mmp-button>
+                </mmp-jk-button>
               `
         : html``}
-          <mmp-button
+          <mmp-jk-button
             raised
             ?disabled=${!isMaster}
             @click=${(e) =>
@@ -69,7 +69,7 @@ class MiniMediaPlayerGroupList extends LitElement {
         )}
           >
             <span>${t(this.hass, 'label.group_all')}</span>
-          </mmp-button>
+          </mmp-jk-button>
         </div>
       </div>
     `;
@@ -77,7 +77,7 @@ class MiniMediaPlayerGroupList extends LitElement {
 
   private renderItem(item: MiniMediaPlayerSpeakerGroupEntry, entityId: string): TemplateResult {
     const itemId = item.entity_id;
-    return html` <mmp-group-item
+    return html` <mmp-jk-group-item
       @change=${this.handleGroupChange}
       .item=${item}
       .hass=${this.hass}
@@ -89,22 +89,22 @@ class MiniMediaPlayerGroupList extends LitElement {
 
   static get styles(): CSSResult {
     return css`
-      .mmp-group-list {
+      .mmp-jk-group-list {
         display: flex;
         flex-direction: column;
         margin-left: 8px;
         margin-bottom: 8px;
       }
-      .mmp-group-list__title {
+      .mmp-jk-group-list__title {
         font-weight: 500;
         letter-spacing: 0.1em;
         margin: 8px 0 4px;
         text-transform: uppercase;
       }
-      .mmp-group-list__buttons {
+      .mmp-jk-group-list__buttons {
         display: flex;
       }
-      mmp-button {
+      mmp-jk-button {
         margin: 8px 8px 0 0;
         min-width: 0;
         text-transform: uppercase;
