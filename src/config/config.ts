@@ -23,6 +23,7 @@ export const generateConfig = (config: MiniMediaPlayerBaseConfiguration): MiniMe
     adaptive_color: false,
     info: 'default',
     media_info_lines: 0,
+    card_height: '',
     group: false,
     volume_stateless: false,
     more_info: true,
@@ -52,6 +53,24 @@ export const generateConfig = (config: MiniMediaPlayerBaseConfiguration): MiniMe
   };
 
   conf.media_info_lines = Math.max(0, Math.floor(Number(conf.media_info_lines) || 0));
+
+  conf.card_height = (() => {
+    const raw = conf.card_height;
+
+    if (typeof raw === 'number') {
+      return raw > 0 ? String(raw) + 'px' : '';
+    }
+
+    const value = String(raw || '').trim();
+
+    if (!value || value === '0') return '';
+
+    if (/^\d+$/.test(value)) {
+      return value + 'px';
+    }
+
+    return value;
+  })();
   
   conf.collapse = conf.hide.controls || conf.hide.volume;
   conf.info = conf.collapse && conf.info !== 'scroll' ? 'short' : conf.info;

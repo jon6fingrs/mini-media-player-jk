@@ -14,6 +14,7 @@ export interface MiniMediaPlayerBaseConfiguration {
   sound_mode?: 'default' | 'icon' | 'full';
   info?: 'default' | 'short' | 'scroll';
   media_info_lines?: number;
+  card_height?: number | string;
   volume_stateless?: boolean;
   volume_step?: number;
   max_volume?: number;
@@ -45,6 +46,7 @@ export interface MiniMediaPlayerConfiguration extends MiniMediaPlayerBaseConfigu
   adaptive_color: boolean;
   info: 'default' | 'short' | 'scroll';
   media_info_lines: number;
+  card_height: number | string;
   group: boolean;
   volume_stateless: boolean;
   more_info: boolean;

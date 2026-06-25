@@ -237,6 +237,9 @@ const style = css`
     transition: padding 0.25s ease-out;
     width: 100%;
     will-change: padding;
+    height: var(--mmp-card-height, auto);
+    min-height: var(--mmp-card-height, auto);
+    overflow: hidden;
   }
   ha-card.--group .mmp-player {
     padding: 2px 0;

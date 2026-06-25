@@ -163,7 +163,7 @@ class MiniMediaPlayer extends LitElement {
     return html`
       <ha-card
         class=${this.computeClasses()}
-        style=${this.computeStyles()}
+        style=${styleMap(this.computeCardStyles())}
         @click=${(e) => this.handlePopup(e)}
         artwork=${config.artwork}
         content=${this.player.content}
@@ -369,6 +369,7 @@ class MiniMediaPlayer extends LitElement {
     const { scale } = this.config;
     return styleMap({
       ...(scale && { '--mmp-unit': `${40 * scale}px` }),
+      ...(this.config.card_height && { '--mmp-card-height': this.config.card_height }),
       ...(this.foregroundColor &&
         this.player.isActive && {
         '--mmp-text-color': this.foregroundColor,
@@ -380,6 +381,25 @@ class MiniMediaPlayer extends LitElement {
         '--ha-control-color': this.foregroundColor,
       }),
     });
+  }
+
+  computeCardStyles() {
+    const cardHeight = this.config.card_height
+      ? (typeof this.config.card_height === 'number'
+          ? String(this.config.card_height) + 'px'
+          : this.config.card_height)
+      : '';
+
+    return {
+      ...this.computeStyles(),
+      ...(cardHeight && {
+        '--mmp-card-height': cardHeight,
+        height: cardHeight,
+        minHeight: cardHeight,
+        maxHeight: cardHeight,
+        overflow: 'hidden',
+      }),
+    };
   }
 
   async computeArtwork(): Promise<void> {
